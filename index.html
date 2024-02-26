@@ -22,17 +22,17 @@
       id="formId"
        method="get"
         action="https://script.google.com/macros/s/AKfycbxdkJ56FZfVZeuy8zApvJ2mup5SDhvfMFI6UyvKYtk9/dev">
-        text: <input type="text" name="a"><br>
-        password:<input type="password" name="b" id="textId"/><br/>
+        text: <input type="text" name="a"  id="textId"><br>
+        password:<input type="password" name="b" id="passwordId"/><br/>
         <input type="submit">                                     
       </form>
     </main>
     <script>
       document.getElementById('formId').addEventListener('submit', e=>{
         e.preventDefault()
-        const text=decument.getElementById('textID').value
-        const password=decument.getElementById('passwordID').value
-        document1.getElementById('formId').innerText="loading..."
+        const text=document.getElementById('textId').value
+        const password=document.getElementById('passwordId').value
+        document.getElementById('formId').innerText="loading..."
 
         console.log(text,password)
 
