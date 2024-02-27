@@ -21,19 +21,23 @@
       <form
       id="formId"
        method="get"
-        action="https://script.google.com/macros/s/AKfycbxdkJ56FZfVZeuy8zApvJ2mup5SDhvfMFI6UyvKYtk9/dev">
+        action="https://script.google.com/macros/s/AKfycbyGfRRFE6Z_hyna-jpWiYEcR436R27Zd9NrhmQ9PBnAbz68sXNRcB6llFsGw-SIYbu6sA/exec">
         text: <input type="text" name="a"  id="textId"><br>
         password:<input type="password" name="b" id="passwordId"/><br/>
         <input type="submit">                                     
       </form>
     </main>
     <script>
-      document.getElementById('formId').addEventListener('submit', e=>{
+      document.getElementById('formId').addEventListener('submit', async e=>{
         e.preventDefault()
         const text=document.getElementById('textId').value
         const password=document.getElementById('passwordId').value
         document.getElementById('formId').innerText="loading..."
 
+const res=await fetch('https://script.google.com/macros/s/AKfycbyGfRRFE6Z_hyna-jpWiYEcR436R27Zd9NrhmQ9PBnAbz68sXNRcB6llFsGw-SIYbu6sA/exec'
++`?a=${text}&b=${password}`)
+const resText=await res.text()
+document.getElementById('formId').innerText=resText
         console.log(text,password)
 
       })
