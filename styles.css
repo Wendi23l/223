@@ -28,7 +28,7 @@ nav a {
   border: solid 1px #aaa;
   text-align: center;
   text-decoration: none;
-  color: #555;
+  color: #555555;
 }
 
 nav a[aria-current='page'] {
@@ -39,8 +39,60 @@ nav a[aria-current='page'] {
 main {
   padding: 1rem;
 }
-
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 2px solid #ff00d4;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  border: 2px solid #ffffff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
 h1 {
   font-weight: bold;
   font-size: 1.5rem;
+}
+input + span {
+  position: relative;
+}
+
+input + span::before {
+  position: absolute;
+  right: -20px;
+  top: 5px;
+}
+
+input:user-invalid {
+  border: 2px solid red;
+}
+
+input:user-invalid + span::before {
+  content: "✖";
+  color: red;
+}
+
+input:user-valid + span::before {
+  content: "✓";
+  color: green;
 }
